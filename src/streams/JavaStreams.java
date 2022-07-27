@@ -1,7 +1,9 @@
 package streams;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class JavaStreams {
 
@@ -24,6 +26,17 @@ public class JavaStreams {
 			 .range(1, 5)
 			 .sum());
 		System.out.println();
+		// 4. Stream.of, sorted and findFirst
+		Stream.of("Huskey", "Saint", "Siber")
+			.sorted()
+			.findFirst()
+			.ifPresent(System.out::println);
+		// 5. Streams from Array, sort, filter and print
+		String[] names = {"Huskey", "Saint", "Siber"};
+		Arrays.stream(names) // same as Stream.of(names)
+			.filter(x -> x.startsWith("S"))
+			.sorted()
+			.forEach(System.out::println);
 
 	}
 }
